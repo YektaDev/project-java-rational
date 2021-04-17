@@ -21,5 +21,6 @@
 package dev.yekta.rational;
 
 final class Operation {
-
+    private Rational[] rationals;
+    private char[] operators;
 }
