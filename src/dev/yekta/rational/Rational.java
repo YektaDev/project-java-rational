@@ -29,4 +29,7 @@ public class Rational {
         public static final char CONV_DIV = ':';
         public static final String REGEX_ANY_SIGN = "[+\\-*/:]";
     }
+
+    private int numerator;
+    private int denominator;
 }
