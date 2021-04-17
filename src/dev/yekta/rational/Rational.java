@@ -71,4 +71,9 @@ public class Rational {
     public Rational() {
         setRational(0, 1);
     }
+
+    public Rational add(Rational num) {
+        int n1 = this.numerator, d1 = this.denominator, n2 = num.numerator, d2 = num.denominator;
+        return new Rational((n1 * d2) + (n2 * d1), d1 * d2);
+    }
 }
