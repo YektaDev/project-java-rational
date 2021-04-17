@@ -82,4 +82,15 @@ final class Operation {
 
         return result;
     }
+
+    public void deleteRational(int index) {
+        Rational[] copy = new Rational[rationals.length - 1];
+
+        for (int i = 0, j = 0; i < rationals.length; i++) {
+            if (i != index)
+                copy[j++] = rationals[i];
+        }
+
+        rationals = copy;
+    }
 }
