@@ -72,4 +72,8 @@ final class Util {
         System.arraycopy(array, 0, output, 1, array.length);
         return output;
     }
+
+    static int gcd(int a, int b) {
+        return (b == 0) ? a : gcd(b, a % b);
+    }
 }
