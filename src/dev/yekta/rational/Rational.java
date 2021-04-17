@@ -88,4 +88,8 @@ public class Rational {
     public Rational div(Rational num) {
         return mul(new Rational(num.denominator, num.numerator));
     }
+
+    public Rational reverse() {
+        return new Rational(denominator, numerator);
+    }
 }
