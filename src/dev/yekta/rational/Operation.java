@@ -104,4 +104,21 @@ final class Operation {
 
         operators = copy;
     }
+
+    public Rational calculate() throws Exceptions.InternalException, Exceptions.UndefinedOperatorException {
+        if (rationals == null)
+            throw new NullPointerException("rationals[] Cannot Be Null!");
+
+        if (rationals.length > 1)
+            calculateMulDiv();
+        if (operators.length > 0)
+            calculateAddSub();
+
+        if (rationals.length != 1)
+            throw new Exceptions.InternalException("Calculation Failure of Operation: rational.length: %d, expected: 1", rationals.length);
+        if (operators.length != 0)
+            throw new Exceptions.InternalException("Calculation Failure of Operation: operators.length: %d, expected: 0", operators.length);
+
+        return rationals[0];
+    }
 }
