@@ -170,4 +170,10 @@ final class Operation {
             }
         }
     }
+
+    private boolean isValid() {
+        if (this.getOperators() != null && this.getRationals() != null)
+            return this.getOperators().length + 1 == this.getRationals().length;
+        return false;
+    }
 }
