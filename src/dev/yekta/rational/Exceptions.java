@@ -34,4 +34,12 @@ public final class Exceptions {
             super(errorMsg, operator);
         }
     }
+
+    public static final class InternalException extends RationalException {
+        public final static String errorMsg = "Internal Error: ";
+
+        public InternalException(String msg, int arg) {
+            super(errorMsg + msg, arg);
+        }
+    }
 }
