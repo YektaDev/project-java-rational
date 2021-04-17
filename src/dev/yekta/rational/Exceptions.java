@@ -26,4 +26,12 @@ public final class Exceptions {
             super(String.format(errorMsg, arg));
         }
     }
+
+    public static final class UndefinedOperatorException extends RationalException {
+        public final static String errorMsg = "Undefined Operator: %s";
+
+        public UndefinedOperatorException(char operator) {
+            super(errorMsg, operator);
+        }
+    }
 }
