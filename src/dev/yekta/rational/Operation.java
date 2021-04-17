@@ -20,6 +20,7 @@
 
 package dev.yekta.rational;
 
+import static dev.yekta.rational.Rational.Signs.*;
 import static dev.yekta.rational.Util.*;
 
 final class Operation {
@@ -120,5 +121,29 @@ final class Operation {
             throw new Exceptions.InternalException("Calculation Failure of Operation: operators.length: %d, expected: 0", operators.length);
 
         return rationals[0];
+    }
+
+    private void calculateMulDiv() {
+        for (int i = 0; i < this.operators.length; i++) {
+            Rational tmp;
+            switch (this.operators[i]) {
+                case CONV_MUL:
+                    tmp = this.rationals[i].mul(this.rationals[i + 1]);
+                    this.rationals = insert(this.rationals, tmp, i);
+                    deleteRational(i + 1);
+                    deleteRational(i + 1);
+                    deleteOperator(i);
+                    i = -1; // Reset the counter
+                    break;
+                case CONV_DIV:
+                    tmp = this.rationals[i].div(this.rationals[i + 1]);
+                    this.rationals = insert(this.rationals, tmp, i);
+                    deleteRational(i + 1);
+                    deleteRational(i + 1);
+                    deleteOperator(i);
+                    i = -1; // Reset the counter
+                    break;
+            }
+        }
     }
 }
