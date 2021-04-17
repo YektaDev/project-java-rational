@@ -93,4 +93,15 @@ final class Operation {
 
         rationals = copy;
     }
+
+    public void deleteOperator(int index) {
+        char[] copy = new char[operators.length - 1];
+
+        for (int i = 0, j = 0; i < operators.length; i++) {
+            if (i != index)
+                copy[j++] = operators[i];
+        }
+
+        operators = copy;
+    }
 }
