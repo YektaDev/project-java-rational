@@ -52,4 +52,23 @@ public class Rational {
     public void setDenominator(int denominator) {
         this.denominator = denominator;
     }
+
+    public Rational(int numerator, int denominator, boolean doSimplification) {
+        if (doSimplification)
+            setSimplifiedRational(numerator, denominator);
+        else
+            setRational(numerator, denominator);
+    }
+
+    public Rational(int numerator, int denominator) {
+        setSimplifiedRational(numerator, denominator);
+    }
+
+    public Rational(int numerator) {
+        setRational(numerator, 1);
+    }
+
+    public Rational() {
+        setRational(0, 1);
+    }
 }
