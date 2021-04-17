@@ -20,6 +20,8 @@
 
 package dev.yekta.rational;
 
+import java.util.regex.Pattern;
+
 import static dev.yekta.rational.Rational.Signs.DISPLAY_FRACTION;
 
 public class Rational {
@@ -120,5 +122,24 @@ public class Rational {
             System.out.println(e.getMessage());
             return new Rational();
         }
+    }
+
+    public static Rational convertP(String str) {
+        if (str == null) {
+            System.out.println("Rational.convertP(): str Cannot Be Empty!");
+            return new Rational();
+        }
+
+        int lastPOpenIndex = str.lastIndexOf('(');
+
+        if (lastPOpenIndex == -1)
+            return convert(str);
+
+        String neededStr = str.substring(lastPOpenIndex);
+        int lastPCloseIndex = neededStr.indexOf(')');
+        neededStr = neededStr.substring(0, lastPCloseIndex + 1);
+        String operationStr = neededStr.substring(1, neededStr.length() - 1);
+
+        return convertP(str.replaceAll(Pattern.quote(neededStr), convert(operationStr).toString()));
     }
 }
