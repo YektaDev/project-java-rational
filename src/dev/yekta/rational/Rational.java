@@ -21,5 +21,12 @@
 package dev.yekta.rational;
 
 public class Rational {
-
+    public static final class Signs {
+        public static final char DISPLAY_FRACTION = '/';
+        public static final char CONV_ADD = '+';
+        public static final char CONV_SUB = '-';
+        public static final char CONV_MUL = '*';
+        public static final char CONV_DIV = ':';
+        public static final String REGEX_ANY_SIGN = "[+\\-*/:]";
+    }
 }
