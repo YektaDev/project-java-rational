@@ -146,4 +146,28 @@ final class Operation {
             }
         }
     }
+
+    private void calculateAddSub() throws Exceptions.UndefinedOperatorException {
+        while (this.operators.length > 0) {
+            Rational tmp;
+            switch (this.operators[0]) {
+                case CONV_ADD:
+                    tmp = this.rationals[0].add(this.rationals[1]);
+                    deleteRational(0);
+                    deleteRational(0);
+                    deleteOperator(0);
+                    rationals = appendStart(this.rationals, tmp);
+                    break;
+                case CONV_SUB:
+                    tmp = this.rationals[0].sub(this.rationals[1]);
+                    deleteRational(0);
+                    deleteRational(0);
+                    deleteOperator(0);
+                    rationals = appendStart(this.rationals, tmp);
+                    break;
+                default:
+                    throw new Exceptions.UndefinedOperatorException(operators[0]);
+            }
+        }
+    }
 }
