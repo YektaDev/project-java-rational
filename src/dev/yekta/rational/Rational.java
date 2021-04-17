@@ -99,4 +99,8 @@ public class Rational {
     public String toString() {
         return (denominator != 0) ? numerator + String.valueOf(DISPLAY_FRACTION) + denominator : "UNDEFINED";
     }
+
+    public int strLength() {
+        return (String.valueOf(numerator) + denominator).length() + 1;
+    }
 }
