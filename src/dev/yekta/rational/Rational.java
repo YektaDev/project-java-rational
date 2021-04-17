@@ -103,4 +103,8 @@ public class Rational {
     public int strLength() {
         return (String.valueOf(numerator) + denominator).length() + 1;
     }
+
+    public void print() {
+        System.out.println(this);
+    }
 }
