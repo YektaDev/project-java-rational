@@ -107,4 +107,18 @@ public class Rational {
     public void print() {
         System.out.println(this);
     }
+
+    public static Rational convert(String str) {
+        if (str == null) {
+            System.out.println("Rational.convert(): str Cannot Be Empty!");
+            return new Rational();
+        }
+
+        try {
+            return new Operation(str).calculate();
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            return new Rational();
+        }
+    }
 }
