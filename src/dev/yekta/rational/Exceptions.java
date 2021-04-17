@@ -21,5 +21,9 @@
 package dev.yekta.rational;
 
 public final class Exceptions {
-
+    private static abstract class RationalException extends Exception {
+        public RationalException(String errorMsg, Object arg) {
+            super(String.format(errorMsg, arg));
+        }
+    }
 }
