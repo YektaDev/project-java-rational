@@ -23,6 +23,7 @@ package dev.yekta.rational;
 import java.util.regex.Pattern;
 
 import static dev.yekta.rational.Rational.Signs.DISPLAY_FRACTION;
+import static dev.yekta.rational.Util.gcd;
 
 public class Rational {
     public static final class Signs {
@@ -141,6 +142,16 @@ public class Rational {
         String operationStr = neededStr.substring(1, neededStr.length() - 1);
 
         return convertP(str.replaceAll(Pattern.quote(neededStr), convert(operationStr).toString()));
+    }
+
+    private void setSimplifiedRational(int numerator, int denominator) {
+        if (denominator == 0) {
+            setRational(0, 0);
+            return;
+        }
+
+        int gcd = gcd(numerator, denominator);
+        setRational(numerator / gcd, denominator / gcd);
     }
 
     private void setRational(int numerator, int denominator) {
