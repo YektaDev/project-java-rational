@@ -20,6 +20,23 @@
 
 package dev.yekta.rational;
 
-final class Util {
+import static dev.yekta.rational.Rational.Signs.REGEX_ANY_SIGN;
 
+final class Util {
+    static Rational collectRational(String str) {
+        String[] sp = str.split(REGEX_ANY_SIGN);
+        int numerator;
+        int denominator;
+
+        if (str.charAt(0) == '+' || str.charAt(0) == '-') {
+            numerator = Integer.parseInt(sp[1]);
+            numerator *= str.charAt(0) == '+' ? 1 : -1;
+            denominator = Integer.parseInt(sp[2]);
+        } else {
+            numerator = Integer.parseInt(sp[0]);
+            denominator = Integer.parseInt(sp[1]);
+        }
+
+        return new Rational(numerator, denominator, false); //IT'S IMPORTANT TO BE FALSE
+    }
 }
