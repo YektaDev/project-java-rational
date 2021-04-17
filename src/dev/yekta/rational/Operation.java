@@ -23,4 +23,12 @@ package dev.yekta.rational;
 final class Operation {
     private Rational[] rationals;
     private char[] operators;
+
+    public Rational[] getRationals() {
+        return rationals;
+    }
+
+    public char[] getOperators() {
+        return operators;
+    }
 }
