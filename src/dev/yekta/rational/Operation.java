@@ -64,4 +64,12 @@ final class Operation {
     public Operation() {
         this(new Rational[0], new char[0]);
     }
+
+    public void add(char operator) {
+        operators = addElement(operators, operator);
+    }
+
+    public void add(Rational rational) {
+        rationals = addElement(rationals, rational);
+    }
 }
