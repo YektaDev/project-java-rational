@@ -65,4 +65,11 @@ final class Util {
         output[array.length] = element;
         return output;
     }
+
+    public static <T> T[] appendStart(T[] array, T element) {
+        T[] output = Arrays.copyOf(array, array.length + 1);
+        output[0] = element;
+        System.arraycopy(array, 0, output, 1, array.length);
+        return output;
+    }
 }
