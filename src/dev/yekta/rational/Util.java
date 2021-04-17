@@ -43,4 +43,8 @@ final class Util {
     static char collectOperator(String str) {
         return str.charAt(0);
     }
+
+    static String deleteStartCharsBySizeOf(String str, Rational rational) {
+        return str.substring(rational.strLength());
+    }
 }
