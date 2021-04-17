@@ -47,4 +47,8 @@ final class Util {
     static String deleteStartCharsBySizeOf(String str, Rational rational) {
         return str.substring(rational.strLength());
     }
+
+    static String deleteStartCharsByOne(String str) {
+        return str.substring(1);
+    }
 }
