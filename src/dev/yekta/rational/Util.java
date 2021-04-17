@@ -20,6 +20,8 @@
 
 package dev.yekta.rational;
 
+import java.util.Arrays;
+
 import static dev.yekta.rational.Rational.Signs.REGEX_ANY_SIGN;
 
 final class Util {
@@ -50,5 +52,17 @@ final class Util {
 
     static String deleteStartCharsByOne(String str) {
         return str.substring(1);
+    }
+
+    static Rational[] addElement(Rational[] array, Rational element) {
+        Rational[] output = Arrays.copyOf(array, array.length + 1);
+        output[array.length] = element;
+        return output;
+    }
+
+    static char[] addElement(char[] array, char element) {
+        char[] output = Arrays.copyOf(array, array.length + 1);
+        output[array.length] = element;
+        return output;
     }
 }
