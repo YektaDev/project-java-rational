@@ -32,4 +32,24 @@ public class Rational {
 
     private int numerator;
     private int denominator;
+
+    @SuppressWarnings("unused")
+    public int getNumerator() {
+        return numerator;
+    }
+
+    @SuppressWarnings("unused")
+    public void setNumerator(int numerator) {
+        this.numerator = numerator;
+    }
+
+    @SuppressWarnings("unused")
+    public int getDenominator() {
+        return denominator;
+    }
+
+    @SuppressWarnings("unused")
+    public void setDenominator(int denominator) {
+        this.denominator = denominator;
+    }
 }
