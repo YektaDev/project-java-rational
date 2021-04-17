@@ -20,6 +20,8 @@
 
 package dev.yekta.rational;
 
+import static dev.yekta.rational.Rational.Signs.DISPLAY_FRACTION;
+
 public class Rational {
     public static final class Signs {
         public static final char DISPLAY_FRACTION = '/';
@@ -91,5 +93,10 @@ public class Rational {
 
     public Rational reverse() {
         return new Rational(denominator, numerator);
+    }
+
+    @Override
+    public String toString() {
+        return (denominator != 0) ? numerator + String.valueOf(DISPLAY_FRACTION) + denominator : "UNDEFINED";
     }
 }
