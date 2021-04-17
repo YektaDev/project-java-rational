@@ -39,4 +39,8 @@ final class Util {
 
         return new Rational(numerator, denominator, false); //IT'S IMPORTANT TO BE FALSE
     }
+
+    static char collectOperator(String str) {
+        return str.charAt(0);
+    }
 }
