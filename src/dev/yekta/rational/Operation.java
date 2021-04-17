@@ -72,4 +72,14 @@ final class Operation {
     public void add(Rational rational) {
         rationals = addElement(rationals, rational);
     }
+
+    private static Rational[] insert(Rational[] a, Rational key, int index) {
+        Rational[] result = new Rational[a.length + 1];
+
+        System.arraycopy(a, 0, result, 0, index);
+        result[index] = key;
+        System.arraycopy(a, index, result, index + 1, a.length - index);
+
+        return result;
+    }
 }
