@@ -84,4 +84,8 @@ public class Rational {
     public Rational mul(Rational num) {
         return new Rational(this.numerator * num.numerator, this.denominator * num.denominator);
     }
+
+    public Rational div(Rational num) {
+        return mul(new Rational(num.denominator, num.numerator));
+    }
 }
