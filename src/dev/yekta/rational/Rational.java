@@ -142,4 +142,14 @@ public class Rational {
 
         return convertP(str.replaceAll(Pattern.quote(neededStr), convert(operationStr).toString()));
     }
+
+    private void setRational(int numerator, int denominator) {
+        if (denominator < 0) {
+            this.numerator = -1 * numerator;
+            this.denominator = -1 * denominator;
+        } else {
+            this.numerator = numerator;
+            this.denominator = denominator;
+        }
+    }
 }
