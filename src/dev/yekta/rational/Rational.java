@@ -76,4 +76,8 @@ public class Rational {
         int n1 = this.numerator, d1 = this.denominator, n2 = num.numerator, d2 = num.denominator;
         return new Rational((n1 * d2) + (n2 * d1), d1 * d2);
     }
+
+    public Rational sub(Rational num) {
+        return add(new Rational(-num.numerator, num.denominator));
+    }
 }
