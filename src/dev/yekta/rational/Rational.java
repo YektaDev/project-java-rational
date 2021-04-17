@@ -80,4 +80,8 @@ public class Rational {
     public Rational sub(Rational num) {
         return add(new Rational(-num.numerator, num.denominator));
     }
+
+    public Rational mul(Rational num) {
+        return new Rational(this.numerator * num.numerator, this.denominator * num.denominator);
+    }
 }
