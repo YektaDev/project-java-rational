@@ -20,6 +20,8 @@
 
 package dev.yekta.rational;
 
+import static dev.yekta.rational.Util.*;
+
 final class Operation {
     private Rational[] rationals;
     private char[] operators;
@@ -30,5 +32,36 @@ final class Operation {
 
     public char[] getOperators() {
         return operators;
+    }
+
+    public Operation(String str) {
+        this();
+
+        String currentStr = str.replaceAll(" ", "");
+        while (true) {
+            if (currentStr.length() == 0) break;
+
+            Rational r = collectRational(currentStr);
+            add(r);
+            currentStr = deleteStartCharsBySizeOf(currentStr, r);
+
+            if (currentStr.length() == 0) break;
+
+            char ch = collectOperator(currentStr);
+            add(ch);
+            currentStr = deleteStartCharsByOne(currentStr);
+        }
+
+        if (!isValid())
+            System.out.println("Error: Invalid Operation!");
+    }
+
+    public Operation(Rational[] rationals, char[] operators) {
+        this.rationals = rationals;
+        this.operators = operators;
+    }
+
+    public Operation() {
+        this(new Rational[0], new char[0]);
     }
 }
